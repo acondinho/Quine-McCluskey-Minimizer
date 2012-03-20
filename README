@@ -1,0 +1,13 @@
+*****************************************
+*	Quine-McCluskey Minimizer	*
+*	     Andrew Condinho		*
+*	      Version a0.1		*
+*****************************************
+
+*Purpose*
+As part of my EE106 class we learned about
+minimzing logic functions using the 
+Quine-McCluskey algorithim. This program
+will be using the tabular method to accept
+the min terms of a given logic function 
+and output the simplified form
