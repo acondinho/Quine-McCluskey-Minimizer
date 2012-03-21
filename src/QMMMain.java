@@ -11,23 +11,7 @@ public class QMMMain
 		
 		// Print out greeting
 		System.out.print("Enter the number of inputs: ");
-		int maxNum = 0;
-		
-		//Try to read in the number of inputs;
-		try
-		{
-			BufferedReader bfRead = new BufferedReader(new InputStreamReader(System.in));
-			String inputs = bfRead.readLine();
-			maxNum = Integer.parseInt(inputs);
-		}
-			catch (NumberFormatException ex)
-		{
-			System.err.println("Not a valid number: " + maxNum);
-		}
-			catch (IOException e)
-		{
-			System.err.println("Unexpected IO Error: " + e);
-		}
+		int maxNum = getInputs();
 		
 		//Create int array and read in ints
 		int minTerms[];
@@ -37,6 +21,29 @@ public class QMMMain
 		//Convert ints into a bin array
 		
 		
+	}
+	
+	public static int getInputs()
+	{
+		int numInputs = 0;
+		
+		//Try to read in the number of inputs;
+		try
+		{
+			BufferedReader bfRead = new BufferedReader(new InputStreamReader(System.in));
+			String inputs = bfRead.readLine();
+			numInputs = Integer.parseInt(inputs);
+		}
+			catch (NumberFormatException ex)
+		{
+			System.err.println("Not a valid number: " + numInputs);
+		}
+			catch (IOException e)
+		{
+			System.err.println("Unexpected IO Error: " + e);
+		}
+		
+		return numInputs;
 	}
 	
 	public static int[] gatherTerms()
@@ -51,12 +58,18 @@ public class QMMMain
 		{
 			BufferedReader bfRead = new BufferedReader(new InputStreamReader(System.in));
 			minTerms = bfRead.readLine();
-			tokens = minTerms.split("[ ]");
+			tokens = minTerms.split("[ ]+");
 			
 			minReturn = new int[tokens.length];
 			for(i = 0; i < tokens.length; i++)
 			{
 				minReturn[i] = Integer.parseInt(tokens[i]);
+			}
+			
+			//Echo inputs *testing only*
+			for(i = 0; i < minReturn.length; i++)
+			{
+				System.out.print(minReturn[i] + " ");
 			}
 		} 
 			catch (NumberFormatException ex)
@@ -66,12 +79,6 @@ public class QMMMain
 			catch (IOException e)
 		{
 			System.err.println("Unexpected IO Error: " + e);
-		}
-		
-		//Echo inputs
-		for(i = 0; i < minReturn.length; i++)
-		{
-			System.out.print(minReturn[i] + " ");
 		}
 		
 		return minReturn;
