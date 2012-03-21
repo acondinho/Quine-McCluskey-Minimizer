@@ -16,7 +16,9 @@ public class QMMMain
 		//Try to read in the number of inputs;
 		try
 		{
-			maxNum = System.in.read();
+			BufferedReader bfRead = new BufferedReader(new InputStreamReader(System.in));
+			String inputs = bfRead.readLine();
+			maxNum = Integer.parseInt(inputs);
 		}
 			catch (NumberFormatException ex)
 		{
