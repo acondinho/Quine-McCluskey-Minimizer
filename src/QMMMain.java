@@ -4,24 +4,23 @@ public class QMMMain
 {
 	public static void main(String[] args) 
 	{
-		// TODO Read in variables
-		//		Sort and organize
-		//		Analyze
-		//		Minimize
-		
 		// Print out greeting
-		System.out.print("Enter the number of inputs: ");
 		int maxNum = getInputs();
 		
 		//Create int array and read in ints
 		int minTerms[];
 		minTerms = gatherTerms();
 		
-		
-		//Convert ints into a bin array
-		
+		//Create the tabData list and populate it
+		tabData binList[] = new tabData[minTerms.length];
+		for(int i = 0; i < minTerms.length; i++)
+		{
+			binList[i] = new tabData(maxNum, minTerms[i]);
+		}
 		
 	}
+	
+	
 	
 	public static int getInputs()
 	{
@@ -30,6 +29,7 @@ public class QMMMain
 		//Try to read in the number of inputs;
 		try
 		{
+			System.out.print("Enter the number of inputs: ");
 			BufferedReader bfRead = new BufferedReader(new InputStreamReader(System.in));
 			String inputs = bfRead.readLine();
 			numInputs = Integer.parseInt(inputs);
@@ -51,11 +51,11 @@ public class QMMMain
 		int minReturn[] = new int[0];
 		int i = 0;
 		//use string type to hold input vars
-		System.out.println("Please enter the min terms, seperated by a space");
 		String minTerms = null;
 		String tokens[];
 		try
 		{
+			System.out.println("Please enter the min terms, seperated by a space");
 			BufferedReader bfRead = new BufferedReader(new InputStreamReader(System.in));
 			minTerms = bfRead.readLine();
 			tokens = minTerms.split("[ ]+");
@@ -83,6 +83,4 @@ public class QMMMain
 		
 		return minReturn;
 	}
-	
-
 }
