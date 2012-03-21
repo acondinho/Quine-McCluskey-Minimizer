@@ -5,10 +5,10 @@
 public class tabData 
 {
 	//Variables
-	public int inputs;
-	public int decValue;
-	public int binValue[];
-	public int groupID;
+	public static int inputs;
+	public static int decValue;
+	public static int binValue[];
+	public static int groupID;
 	
 	//tabData Constructor
 	public tabData()
@@ -33,7 +33,20 @@ public class tabData
 	//tabData methods
 	private static void binConv()
 	{
+		int temp = decValue;
+		int count = inputs;
 		
+		while(temp > 0)
+		{
+			binValue[count-1] = temp % 2;
+			temp = temp / 2;
+			count--;
+		}
+		System.out.println("");
+		for(int i = 0; i < inputs; i++)
+		{
+			System.out.print(binValue[i]);
+		}
 	}
 	
 	
