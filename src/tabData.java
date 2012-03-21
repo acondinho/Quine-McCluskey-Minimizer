@@ -23,11 +23,12 @@ public class tabData
 	{
 		inputs = numIn;
 		decValue = dec;
-		groupID = 0;
 		
 		//Call binary conversion method to calculate binValue and store it
 		binValue = new int[numIn];
 		binConv();
+		
+		groupID = setGroupID();
 	}
 	
 	//tabData methods
@@ -42,11 +43,24 @@ public class tabData
 			temp = temp / 2;
 			count--;
 		}
-		System.out.println("");
 		for(int i = 0; i < inputs; i++)
 		{
 			System.out.print(binValue[i]);
 		}
+	}
+	
+	private static int setGroupID()
+	{
+		int count = 0;
+		for(int i = 0; i < inputs; i++)
+		{
+			if(binValue[i] == 1)
+			{
+				count++;
+			}
+		}
+		System.out.println("Group ID set to: " + count);
+		return count;
 	}
 	
 	
