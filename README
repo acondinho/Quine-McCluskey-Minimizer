@@ -11,6 +11,7 @@ Quine-McCluskey algorithim. This program
 will be using the tabular method to accept
 the min terms of a given logic function 
 and output the simplified form
+Adding new forks
 
 *Status*
 - Program accepts input for number of inputs and the min terms
